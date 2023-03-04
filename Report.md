@@ -29,8 +29,8 @@ The columns that we can ignore in our analysis are EIN, NAME and SPECIAL_CONSIDE
 The next step in building out tool, was to compile, train, and evaluating the model.
 In our first model, we removed the EIN and NAME columns and subcategorized the APPLICATION_TYPE and CLASSIFICATION. We then used one hot encoding to create a data frame with 34k+ rows and 45 columns/features. 
 We trained the modeel on the target column IS_SUCCESSFUL using a standard scaler.
-For the neural network model we used 8 layers and 6 nodes and obtained 421 parameters.
-pic1
+For the neural network model we used 8 layers and 6 nodes and obtained 421 parameters.<br />
+[pic1](https://github.com/nico555c/deep-learning-challenge/blob/main/Starter_Code/1stacc.JPG)
 
 The resuls were very promising in our first attempt but did not reach our target accuracy of 0.75.
 pic2
