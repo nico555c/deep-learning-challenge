@@ -6,7 +6,7 @@ In response to Alphabet Soup's need for a tool that can help it select the appli
 
 In this report, we will discuss the development of the neural network model and its performance in selecting successful applicants. We will begin by describing the dataset used to train the model and the preprocessing steps applied to it. Next, we will explain the architecture of the neural network model and the hyperparameters used to train it. We will then discuss the results of the model and evaluate its performance on a test dataset. Finally, we will conclude by discussing the limitations of the model and suggestions for future improvements.
 
-# Dataset
+## Dataset
 
 From Alphabet Soup’s business team, we have received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as:
 
