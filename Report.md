@@ -1,122 +1,60 @@
-# deep-learning-challenge
-Background
-The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. With your knowledge of machine learning and neural networks, you’ll use the features in the provided dataset to create a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
+# Report
 
-From Alphabet Soup’s business team, you have received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as:
+Alphabet Soup is a nonprofit foundation that provides funding to various ventures to promote innovation and social development. The foundation has been operating successfully for many years and has helped numerous organizations achieve their goals. However, as the number of applications for funding has increased over time, it has become increasingly challenging for Alphabet Soup to evaluate each application thoroughly.
 
-EIN and NAME—Identification columns
-APPLICATION_TYPE—Alphabet Soup application type
-AFFILIATION—Affiliated sector of industry
-CLASSIFICATION—Government organization classification
-USE_CASE—Use case for funding
-ORGANIZATION—Organization type
-STATUS—Active status
-INCOME_AMT—Income classification
-SPECIAL_CONSIDERATIONS—Special considerations for application
-ASK_AMT—Funding amount requested
-IS_SUCCESSFUL—Was the money used effectively
-Before You Begin
-Create a new repository for this project called deep-learning-challenge. Do not add this Challenge to an existing repository.
+In response to Alphabet Soup's need for a tool that can help it select the applicants for funding with the best chance of success in their ventures, we created a neural network model that could analyze the applications and provide insights into the potential success of each venture.
 
-Clone the new repository to your computer.
+In this report, we will discuss the development of the neural network model and its performance in selecting successful applicants. We will begin by describing the dataset used to train the model and the preprocessing steps applied to it. Next, we will explain the architecture of the neural network model and the hyperparameters used to train it. We will then discuss the results of the model and evaluate its performance on a test dataset. Finally, we will conclude by discussing the limitations of the model and suggestions for future improvements.
 
-Inside your local git repository, create a directory for the Deep Learning Challenge.
+# Dataset
 
-Push the above changes to GitHub.
+From Alphabet Soup’s business team, we have received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as:
 
-Files
-Download the following files to help you get started:
+EIN and NAME—Identification columns<br />
+APPLICATION_TYPE—Alphabet Soup application type<br />
+AFFILIATION—Affiliated sector of industry<br />
+CLASSIFICATION—Government organization classification<br />
+USE_CASE—Use case for funding<br />
+ORGANIZATION—Organization type<br />
+STATUS—Active status<br />
+INCOME_AMT—Income classification<br />
+SPECIAL_CONSIDERATIONS—Special considerations for application<br />
+ASK_AMT—Funding amount requested<br />
+IS_SUCCESSFUL—Was the money used effectively<br />
 
-Module 21 Challenge filesLinks to an external site.
+We studied this data and identified the target varaible for the model to be the IS_SUCCESSFUL column.
+The main features of the model are considered to be APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT and ASK_AMT.
+The columns that we can ignore in our analysis are EIN, NAME and SPECIAL_CONSIDERATIONS.
 
-Instructions
-Step 1: Preprocess the Data
-Using your knowledge of Pandas and scikit-learn’s StandardScaler(), you’ll need to preprocess the dataset. This step prepares you for Step 2, where you'll compile, train, and evaluate the neural network model.
+The next step in building out tool, was to compile, train, and evaluating the model.
+In our first model, we removed the EIN and NAME columns and subcategorized the APPLICATION_TYPE and CLASSIFICATION. We then used one hot encoding to create a data frame with 34k+ rows and 45 columns/features. 
+We trained the modeel on the target column IS_SUCCESSFUL using a standard scaler.
+For the neural network model we used 8 layers and 6 nodes and obtained 421 parameters.
+pic1
 
-Using the information we provided in the Challenge files, follow the instructions to complete the preprocessing steps.
+The resuls were very promising in our first attempt but did not reach our target accuracy of 0.75.
+pic2
 
-Read in the charity_data.csv to a Pandas DataFrame, and be sure to identify the following in your dataset:
-What variable(s) are the target(s) for your model?
-What variable(s) are the feature(s) for your model?
-Drop the EIN and NAME columns.
+In order to optimize the model further we made several changes and compiled, trained, and evaluated the model to study the results.
+We made the following changes that did not increase the accuracy of our model:
+* changed the binning parameters used on APPLICATION_TYPE and CLASSIFICATION
+* picked new features for binning paired with eachother or in combnation with the original parameteres: AFFILIATION, ASK_AMT, INCOME_AMT
+* changed the layers to 3, 5, 10 and 15 as well as the nodes to 1, 2, 8 and 10
 
-Determine the number of unique values for each column.
+None of these changes made and remarkable changes to our original accuracy.
 
-For columns that have more than 10 unique values, determine the number of data points for each unique value.
+We then decided a more radical change was needed and evaluated the data from the scratch.
+We noticed that we dropped EIN and NAME because we considered them irelevant for the model. We decided the add back the NAME and check for unique values. We noticed that quite a few compaines were repeated in the data, so we decided to include the NAME in our model and used binning to subcategorize it.
 
-Use the number of data points for each unique value to pick a cutoff point to bin "rare" categorical variables together in a new value, Other, and then check if the binning was successful.
+With this new bin and the classification bin, we used 10 layers and 6 nodes for the modeling and our results did not disappoing.
+We created a model with 0.77 accuracy that exceeded our original target.
+pic 3
+pic 4
 
-Use pd.get_dummies() to encode categorical variables.
 
-Split the preprocessed data into a features array, X, and a target array, y. Use these arrays and the train_test_split function to split the data into training and testing datasets.
+The neural network model we developed will improve the way Alphabet Soup selects applicants for funding. By using this tool, the foundation can save time and resources and ensure that they are investing in ventures that have a high probability of success.
 
-Scale the training and testing features datasets by creating a StandardScaler instance, fitting it to the training data, then using the transform function.
+We recommend that Alphabet Soup continues to explore other machine learing modles such as logistic regression (supervised) that, with the data provided can yeld even higher accuracy levels.
 
-Step 2: Compile, Train, and Evaluate the Model
-Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
 
-Continue using the Jupyter Notebook in which you performed the preprocessing steps from Step 1.
 
-Create a neural network model by assigning the number of input features and nodes for each layer using TensorFlow and Keras.
-
-Create the first hidden layer and choose an appropriate activation function.
-
-If necessary, add a second hidden layer with an appropriate activation function.
-
-Create an output layer with an appropriate activation function.
-
-Check the structure of the model.
-
-Compile and train the model.
-
-Create a callback that saves the model's weights every five epochs.
-
-Evaluate the model using the test data to determine the loss and accuracy.
-
-Save and export your results to an HDF5 file. Name the file AlphabetSoupCharity.h5.
-
-Step 3: Optimize the Model
-Using your knowledge of TensorFlow, optimize your model to achieve a target predictive accuracy higher than 75%.
-
-Use any or all of the following methods to optimize your model:
-
-Adjust the input data to ensure that no variables or outliers are causing confusion in the model, such as:
-Dropping more or fewer columns.
-Creating more bins for rare occurrences in columns.
-Increasing or decreasing the number of values for each bin.
-Add more neurons to a hidden layer.
-Add more hidden layers.
-Use different activation functions for the hidden layers.
-Add or reduce the number of epochs to the training regimen.
-Note: If you make at least three attempts at optimizing your model, you will not lose points if your model does not achieve target performance.
-
-Create a new Jupyter Notebook file and name it AlphabetSoupCharity_Optimization.ipynb.
-
-Import your dependencies and read in the charity_data.csv to a Pandas DataFrame.
-
-Preprocess the dataset as you did in Step 1. Be sure to adjust for any modifications that came out of optimizing the model.
-
-Design a neural network model, and be sure to adjust for modifications that will optimize the model to achieve higher than 75% accuracy.
-
-Save and export your results to an HDF5 file. Name the file AlphabetSoupCharity_Optimization.h5.
-
-Step 4: Write a Report on the Neural Network Model
-For this part of the assignment, you’ll write a report on the performance of the deep learning model you created for Alphabet Soup.
-
-The report should contain the following:
-
-Overview of the analysis: Explain the purpose of this analysis.
-
-Results: Using bulleted lists and images to support your answers, address the following questions:
-
-Data Preprocessing
-
-What variable(s) are the target(s) for your model?
-What variable(s) are the features for your model?
-What variable(s) should be removed from the input data because they are neither targets nor features?
-Compiling, Training, and Evaluating the Model
-
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Were you able to achieve the target model performance?
-What steps did you take in your attempts to increase model performance?
-Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
