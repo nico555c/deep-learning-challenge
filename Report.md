@@ -60,7 +60,7 @@ We created a model with 0.77 accuracy that exceeded our original target.<br />
 
 The neural network model we developed will improve the way Alphabet Soup selects applicants for funding. By using this tool, the foundation can save time and resources and ensure that they are investing in ventures that have a high probability of success.
 
-We recommend that Alphabet Soup continues to explore other machine learing modles such as logistic regression (supervised) that, with the data provided can yeld even higher accuracy levels.
+We recommend that Alphabet Soup continues to explore other machine learing models such as logistic regression (supervised) that, with the data provided can yeld even higher accuracy levels.
 
 
 
