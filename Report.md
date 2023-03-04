@@ -10,17 +10,17 @@ In this report, we will discuss the development of the neural network model and 
 
 From Alphabet Soup’s business team, we have received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as:
 
-EIN and NAME—Identification columns
-APPLICATION_TYPE—Alphabet Soup application type
-AFFILIATION—Affiliated sector of industry
-CLASSIFICATION—Government organization classification
-USE_CASE—Use case for funding
-ORGANIZATION—Organization type
-STATUS—Active status
-INCOME_AMT—Income classification
-SPECIAL_CONSIDERATIONS—Special considerations for application
-ASK_AMT—Funding amount requested
-IS_SUCCESSFUL—Was the money used effectively
+EIN and NAME—Identification columns<br />
+APPLICATION_TYPE—Alphabet Soup application type<br />
+AFFILIATION—Affiliated sector of industry<br />
+CLASSIFICATION—Government organization classification<br />
+USE_CASE—Use case for funding<br />
+ORGANIZATION—Organization type<br />
+STATUS—Active status<br />
+INCOME_AMT—Income classification<br />
+SPECIAL_CONSIDERATIONS—Special considerations for application<br />
+ASK_AMT—Funding amount requested<br />
+IS_SUCCESSFUL—Was the money used effectively<br />
 
 We studied this data and identified the target varaible for the model to be the IS_SUCCESSFUL column.
 The main features of the model are considered to be APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT and ASK_AMT.
