@@ -53,7 +53,7 @@ We noticed that we dropped EIN and NAME because we considered them irelevant for
 With this new bin and the classification bin, we used 10 layers and 6 nodes for the modeling and our results did not disappoing.
 We created a model with 0.77 accuracy that exceeded our original target.<br />
 
-![plot](https://github.com/nico555c/deep-learning-challenge/blob/main/Starter_Code/optimparam.JPG)
+![plot](https://github.com/nico555c/deep-learning-challenge/blob/main/Starter_Code/optimparam.JPG)<br />
 ![plot](https://github.com/nico555c/deep-learning-challenge/blob/main/Starter_Code/optimacc.JPG)
 
 ## Conclusion
