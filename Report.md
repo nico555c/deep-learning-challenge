@@ -22,6 +22,8 @@ SPECIAL_CONSIDERATIONS—Special considerations for application<br />
 ASK_AMT—Funding amount requested<br />
 IS_SUCCESSFUL—Was the money used effectively<br />
 
+##Train the Model
+
 We studied this data and identified the target varaible for the model to be the IS_SUCCESSFUL column.
 The main features of the model are considered to be APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT and ASK_AMT.
 The columns that we can ignore in our analysis are EIN, NAME and SPECIAL_CONSIDERATIONS.
@@ -30,7 +32,7 @@ The next step in building out tool, was to compile, train, and evaluating the mo
 In our first model, we removed the EIN and NAME columns and subcategorized the APPLICATION_TYPE and CLASSIFICATION. We then used one hot encoding to create a data frame with 34k+ rows and 45 columns/features. 
 We trained the modeel on the target column IS_SUCCESSFUL using a standard scaler.
 For the neural network model we used 8 layers and 6 nodes and obtained 421 parameters.<br />
-[![ScreenShot](1stacc.JPG)](https://github.com/nico555c/deep-learning-challenge/blob/main/Starter_Code/1stacc.JPG)
+![plot](https://github.com/nico555c/deep-learning-challenge/blob/main/Starter_Code/1stacc.JPG)
 
 The resuls were very promising in our first attempt but did not reach our target accuracy of 0.75.
 pic2
@@ -51,7 +53,7 @@ We created a model with 0.77 accuracy that exceeded our original target.
 pic 3
 pic 4
 
-
+##Conclusion
 The neural network model we developed will improve the way Alphabet Soup selects applicants for funding. By using this tool, the foundation can save time and resources and ensure that they are investing in ventures that have a high probability of success.
 
 We recommend that Alphabet Soup continues to explore other machine learing modles such as logistic regression (supervised) that, with the data provided can yeld even higher accuracy levels.
